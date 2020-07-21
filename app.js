@@ -35,10 +35,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // create tables
 const db = require("./models");
 // db.sequelize.sync();
-db.sequelize.sync({ force: true }).then(() => {
-    console.log("Drop and re-sync db.");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//     console.log("Drop and re-sync db.");
+// });
 
+// routes
+require("./routes/tutorial.js")(app);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
